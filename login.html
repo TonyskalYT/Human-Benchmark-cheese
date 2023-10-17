@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html>
+   <head>
+      <title>User UI</title>
+      <link rel="icon" href="https://cdn.discordapp.com/attachments/1160753898169057330/1160804457848786994/SiteIcon.png" type="image/x-icon">
+      <style>
+         body {
+         font-family: Arial, sans-serif;
+         background-image: url('https://cdn.discordapp.com/attachments/1160761272405602435/1160762717322350632/Untitled-1.png');
+         background-size: cover;
+         color: #fff;
+         text-align: center;
+         margin: 0;
+         padding: 0;
+         }
+         .container {
+         background-color: rgba(0, 0, 0, 0.6);
+         border: 1px solid #555;
+         border-radius: 5px;
+         box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+         max-width: 80%;
+         margin: 5% auto;
+         padding: 4%;
+         }
+         h1 {
+         color: #ff0000;
+         font-family: 'Black Ops One', sans-serif;
+         font-size: 2em;
+         text-align: center;
+         }
+         p {
+         font-size: 1em;
+         text-align: center;
+         margin: 10px 0;
+         }
+         .cheese-button {
+         background: url('https://cdn.discordapp.com/attachments/1160761272405602435/1163417210115588106/cheese.png') no-repeat;
+         background-size: 20px;
+         width: 20px;
+         height: 20px;
+         border: none;
+         cursor: pointer;
+         display: inline-block;
+         }
+         .button-container {
+         float: right;
+         margin-right: 1%;
+         }
+         .test-result {
+         margin-bottom: 1%;
+         border-bottom: 1px solid #555;
+         padding-bottom: 10px;
+         }
+      </style>
+   </head>
+   <body>
+      <div class="container">
+         <h1>Login Success! Enjoy your cheesing.</h1>
+         <div class="test-result">
+            <p><strong>Username:</strong> {{u}}</p>
+         </div>
+         <div class="test-result">
+            <p><strong>Chimp Test:</strong> {{chimptestresults}}
+               <span class="button-container">
+               <button class="cheese-button" onclick="logResult(1)"></button>
+               </span>
+            </p>
+         </div>
+         <div class="test-result">
+            <p><strong>Aim Test:</strong> {{aimtestresults}}
+               <span class="button-container">
+               <button class="cheese-button" onclick="logResult(6)"></button>
+               </span>
+            </p>
+         </div>
+         <div class="test-result">
+            <p><strong>Typing Test:</strong> {{typingtestresults}}
+               <span class="button-container">
+               <button class="cheese-button" onclick="logResult(3)"></button>
+               </span>
+            </p>
+         </div>
+         <div class="test-result">
+            <p><strong>Number Memory Test:</strong> {{numbermemorytestresults}}
+               <span class="button-container">
+               <button class="cheese-button" onclick="logResult(8)"></button>
+               </span>
+            </p>
+         </div>
+         <div class="test-result">
+            <p><strong>Reaction Time Test:</strong> {{reactiontestresults}}
+               <span class="button-container">
+               <button class="cheese-button" onclick="logResult(7)"></button>
+               </span>
+            </p>
+         </div>
+         <div class="test-result">
+            <p><strong>Sequence Memory Test:</strong> {{sequencetestresults}}
+               <span class="button-container">
+               <button class="cheese-button" onclick="logResult(2)"></button>
+               </span>
+            </p>
+         </div>
+         <div class="test-result">
+            <p><strong>Verbal Memory Test:</strong> {{verbaltestresults}}
+               <span class="button-container">
+               <button class="cheese-button" onclick="logResult(4)"></button>
+               </span>
+            </p>
+         </div>
+         <div class="test-result">
+            <p><strong>Visual Memory Test:</strong> {{visualtestresults}}
+               <span class="button-container">
+               <button class="cheese-button" onclick="logResult(5)"></button>
+               </span>
+            </p>
+         </div>
+      </div>
+      </div>
+      <script>
+         function logResult(testNumber) {
+             fetch(`/logresult/${testNumber}`, {
+                 method: 'POST',
+             }).then(response => {
+                 if (response.ok) {
+                     console.log(`Test result ${testNumber} logged successfully.`);
+                 } else {
+                     console.error(`Failed to log test result ${testNumber}.`);
+                 }
+             });
+         }
+      </script>
+   </body>
+</html>

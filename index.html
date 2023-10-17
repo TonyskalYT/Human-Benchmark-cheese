@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+   <head>
+      <title>Login</title>
+      <link rel="icon" href="https://cdn.discordapp.com/attachments/1160753898169057330/1160804457848786994/SiteIcon.png" type="image/x-icon">
+      <link href="https://fonts.googleapis.com/css2?family=Black+Ops+One&display=swap" rel="stylesheet">
+      <link href="https://fonts.googleapis.com/css2?family=GG+Gothic+13&display=swap" rel="stylesheet">
+      <style>
+         body {
+         display: flex;
+         justify-content: center;
+         align-items: center;
+         height: 100vh;
+         margin: 0;
+         font-family: 'Black Ops One', sans-serif;
+         background-image: url('https://cdn.discordapp.com/attachments/1160761272405602435/1160762717322350632/Untitled-1.png');
+         background-size: cover;
+         color: #fff;
+         position: relative;
+         }
+         .top-bar {
+         position: absolute;
+         top: 0;
+         width: 100%;
+         background-color: rgba(0, 0, 0, 0.6);
+         text-align: center;
+         font-family: 'Black Ops One', sans-serif;
+         font-size: 24px;
+         color: white;
+         padding: 10px 0;
+         }
+         .login-container {
+         text-align: center;
+         padding: 4%;
+         border: 1px solid #555;
+         border-radius: 5px;
+         box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+         width: 60%;
+         background-color: rgba(0, 0, 0, 0.6);
+         margin-top: 50px;
+         }
+         .login-input {
+         width: 100%;
+         padding: 2%;
+         margin: 2% 0;
+         border: 1px solid #555;
+         border-radius: 3px;
+         }
+         .login-button {
+         width: 100%;
+         padding: 2%;
+         background-color: #ff0000;
+         color: #fff;
+         border: none;
+         border-radius: 3px;
+         cursor: pointer;
+         }
+         #true-username {
+         margin-top: 4%;
+         font-weight: bold;
+         }
+         #test-data {
+         margin-top: 4%;
+         }
+         .loading {
+         display: none;
+         position: absolute;
+         top: 50%;
+         left: 50%;
+         transform: translate(-50%, -50%);
+         z-index: 999;
+         }
+      </style>
+   </head>
+   <body>
+      <div class="top-bar">
+         Made by TonyskalYT
+      </div>
+      <div class="login-container">
+         <h1 style="font-family: 'Black Ops One', sans-serif; color: white;">Human benchmark Login:</h1>
+         <form action="/profile" method="post" onsubmit="fetchUserData(event)">
+            <input class="login-input" type="text" placeholder="Username" name="username" id="username" required>
+            <input class="login-input" type="password" placeholder="Password" name="password" id="password" required>
+            <button class="login-button" type="submit" id="login-button">Login</button>
+         </form>
+      </div>
+      <img src="https://cdn.discordapp.com/attachments/1160761272405602435/1163411654684442725/loading-gif.gif" class="loading" id="loading-gif">
+      <script>
+         const loginButton = document.getElementById('login-button');
+         const loadingGif = document.getElementById('loading-gif');
+         
+         loginButton.addEventListener('click', function() {
+             loadingGif.style.display = 'block';
+         });
+      </script>
+   </body>
+</html>
